@@ -71,7 +71,7 @@ public class Kata
         int nextBiggerDigit = sortedSequence.Find(digit => digit > firstSequenceDigit);
         int nextBiggerDigitIndex = sequence.FindLastIndex(digit => digit == nextBiggerDigit);
 
-        // Swap first digit and closest biggest digit.
+        // Swap first digit and closest bigger digit.
         // Ex: 6871 -> 7861.
         // Sort sequence excluding first digit.
         // Ex: 7861 -> 7168.
@@ -83,6 +83,7 @@ public class Kata
         sequence = sequence.Take(1).Concat(sortedSequence).ToList();
 
         // Concatenate constant sequence from the beginning and sorted sequence.
+        // 123874 + 7168
         return long.Parse(constantSequence == null ? "" : string.Join("", constantSequence) + string.Join("", sequence));
     }
 }
